@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>StopWatt</title>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0, minimum-scale=1.0" name="viewport">
+    <meta name="localapi" content="true" />
+    <link rel="preload" as="image" href="images/logo.png" />
+    <link rel="preload" as="image" href="./imgs/img-3-728.webp" />
+    <link rel="preload" as="image" href="./imgs/img-2-728.webp" />
+    <link rel="preload" as="image" href="./imgs/img-1.webp" />
+    <link rel='preload' as='script' href='js/easy_modalandjquery.js'>
+    <link rel='preload' as='script' href='js/bdv4.js'>
+
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com/">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&family=Roboto:wght@400;500&display=swap" rel="preload stylesheet">
+
+    <link rel="icon" href="images/favicon.png" type="image/png">
+    <link rel="preload stylesheet" href="presell/css/bootstrap.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel='preload stylesheet' href='presell/css/style.css' as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <style>
+        .col,
+        .col-10,
+        .col-2,
+        .col-3,
+        .col-4,
+        .col-6,
+        .col-8,
+        .col-9,
+        .col-lg-5,
+        .col-lg-7,
+        .col-md-10,
+        .col-md-12,
+        .col-md-2,
+        .col-md-3,
+        .col-md-4,
+        .col-md-5,
+        .col-md-8,
+        .col-md-9,
+        .col-sm-12,
+        .col-sm-4,
+        .col-sm-8 {
+            position: static !important
+        }
+
+        .videos video {
+            width: 100%;
+        }
+
+        .video video {
+            transform: scale(0.4);
+            position: absolute;
+            width: 100%;
+            top: -68px;
+            right: -168px;
+        }
+
+        @media (max-width: 767px) {
+            .video video {
+                transform: scale(100%);
+                position: relative;
+                width: 100%;
+                top: auto;
+                right: auto;
+            }
+            .btn-get {
+                padding: 10px;
+            }
+            .hide {
+                display: none;
+            }
+        }
+
+        .floating-bar {
+            background-color: rgba(0, 0, 0, .8);
+            position: fixed;
+            left: 0;
+            right: 0;
+            z-index: 10;
+            -webkit-transition: transform 150ms ease;
+            -moz-transition: transform 150ms ease;
+            -ms-transition: transform 150ms ease;
+            -o-transition: transform 150ms ease;
+            transition: transform 150ms ease
+        }
+
+        .editMode .floating-bar,
+        .edit_mode .floating-bar {
+            position: static;
+            display: block !important;
+            -webkit-transform: translateY(0) !important;
+            -moz-transform: translateY(0) !important;
+            -ms-transform: translateY(0) !important;
+            -o-transform: translateY(0) !important;
+            transform: translateY(0) !important
+        }
+
+        .floating-bar.floating-bottom {
+            bottom: 0;
+            -webkit-transform: translateY(110%);
+            -moz-transform: translateY(110%);
+            -ms-transform: translateY(110%);
+            -o-transform: translateY(110%);
+            transform: translateY(110%)
+        }
+
+        .floating-bar.floating-bottom.floating-visible {
+            -webkit-transform: translateY(0);
+            -moz-transform: translateY(0);
+            -ms-transform: translateY(0);
+            -o-transform: translateY(0);
+            transform: translateY(0)
+        }
+
+        .floating-bar.floating-top {
+            top: 0;
+            -webkit-transform: translateY(-110%);
+            -moz-transform: translateY(-110%);
+            -ms-transform: translateY(-110%);
+            -o-transform: translateY(-110%);
+            transform: translateY(-110%)
+        }
+
+        .floating-bar.floating-force-show,
+        .floating-bar.floating-top.floating-visible {
+            -webkit-transform: translateY(0);
+            -moz-transform: translateY(0);
+            -ms-transform: translateY(0);
+            -o-transform: translateY(0);
+            transform: translateY(0)
+        }
+
+        .floating-bar .floating-desc {
+            color: #fff;
+            margin-bottom: 5px
+        }
+
+        .floating-bar .btn-floating-bar {
+            display: block;
+            text-decoration: none !important;
+            -webkit-border-radius: 3px;
+            border-radius: 3px
+        }
+
+        .floating-bar .btn-floating-bar:hover {
+            -webkit-transform: scale(1.1);
+            -moz-transform: scale(1.1);
+            -ms-transform: scale(1.1);
+            -o-transform: scale(1.1);
+            transform: scale(1.1)
+        }
+
+        .floating-bar .btn-floating-bar p:first-child {
+            padding: 10px 15px;
+            color: #fff
+        }
+    </style>
+    <script type="text/javascript">
+        var hasoffers_domain = "https://jump.trakmylink.com";
+    </script>
+    <script type="text/javascript" src="https://media.go2app.org/assets/js/dl.js"></script>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-168922887-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-168922887-1');
+    </script>
+
+    <!-- Google Tag Manager -->
+    <script>
+        (function(w, d, s, l, i) {
+            w[l] = w[l] || [];
+            w[l].push({
+                'gtm.start': new Date().getTime(),
+                event: 'gtm.js'
+            });
+            var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s),
+                dl = l != 'dataLayer' ? '&l=' + l : '';
+            j.async = true;
+            j.src =
+                'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+            f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-KGM5PZF');
+    </script>
+    <!-- End Google Tag Manager -->
+
+</head>
+
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript>
+        <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KGM5PZF"
+                height="0" width="0" style="display:none;visibility:hidden"></iframe>
+    </noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <div id="advertisement" class="text-center">Advertorial</div>
+    <div class="trending">
+        <div class="container">
+            <p class="text-white"><img src="./imgs/us.png.webp" width="40" style="margin-right: 20px;" /><img src="./imgs/canada.png.webp" width="40" style="margin-right: 20px;" />Trending in the US and Canada</p>
+        </div>
+    </div>
+    <div class="container">
+        <p class="update-sec">
+            <span class="font-weight-bold text-red">Update</span>: Due to overwhelming demand for Stopwatt. Stopwatt has sold out 3x this past year. Our current supply is flying off the shelf! Get yours before it's too late.
+        </p>
+    </div>
+    <!--mainpage-->
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9">
+                <div class="main-page sectionContainer">
+                    <div class="container">
+                        <div class="row">
+                            <h1 style="text-transform: uppercase;">
+                                <span class="text-red">Electric Companies Will Hate You</span> For Doing This,
+                                <span class="bg-yellow">But They Can’t Stop You</span>
+                                <br />
+                                <img src="./imgs/stars.png" width="80" /> <span class="rating">758 Ratings</span>
+                            </h1>
+
+                            <div class="articleInfo">
+                                <picture>
+                                    <source srcset="./imgs/img-1.webp" type="image/webp">
+                                    <source srcset="./imgs/img-1.jpg" type="image/png">
+                                    <img src="./imgs/img-1.jpg" alt="" class="img-circle photoAuthor img-fluid" height="40" width="40">
+                                </picture>
+
+                                by <span class="articleAuthor">Dave Freeman</span> <span class="current-date"></span>
+                            </div>
+                        </div>
+                        <!--image2-->
+                        <div class="row show-floating">
+                            <div class="col-12 ">
+                                <a href="https://www.fasttrack12.com/M6DLDZ7D/25FXKK44/?source_id=CAUSMART" class="ho-link" target="_blank">
+                                    <picture>
+                                        <source srcset="./imgs/img-2-728.webp" type="image/webp" width="728" height="423" loading="lazy">
+                                        <source srcset="./imgs/img-2-510.jpg" type="image/jpeg" height="296" width="510">
+                                        <img src="./imgs/img-2-510.jpg" alt="" class="img-fluid m-auto d-block" loading="lazy" height="296" width="510">
+                                    </picture>
+                                </a>
+                            </div>
+                            <div class="content mt-2 mx-3 mx-lg-0">
+                                <p>
+                                    <span class="bg-red-highlighter">
+                                        <strong>
+                                            As the price of electricity steadily increases each and every year, it can stretch a budget extremely thin. But, thanks to this new Nikola-Tesla-inspired technology, consumers can save hundreds and even thousands of dollars per year on their electric bills.
+                                        </strong>
+                                    </span>
+                                    <br /><br /> A recent study suggested that most Americans are overpaying for electricity by an overwhelming $27.6 billion dollars each year.
+                                    <br /><br /> It's obvious that America has an energy crisis—a lack of energy reform from lawmakers and the Public Utility Commission about correcting the crooked business of selling overpriced electricity to consumers.
+                                    <br /><br /> Both sides allow the other to do nothing. Earlier this year, the Public Utility Commission sent lawmakers a report about the incredible and ludicrous electricity spending it regulates. A problem? Apparently
+                                    not.
+                                    <br /><br /> Lawmakers who received the report from the state regulators have implied that everything is fine, and they don’t need to make any changes.
+                                    <br /><br /> In fact, lawmakers refuse to introduce a bill designed to end the deceptive marketing practices that electric companies use to reap massive profits every year.
+                                </p>
+
+                                <a href="https://www.fasttrack12.com/M6DLDZ7D/25FXKK44/?source_id=CAUSMART" target="_blank" class="btn-order btn-get pulse ho-link text-white text-decoration-none" style="text-decoration: none;">GET UP TO 50% OFF STOPWATT</a>
+                            </div>
+                        </div>
+                        <!--image3-->
+                        <div class="row">
+                            <div class="col-12">
+                                <a href="https://www.fasttrack12.com/M6DLDZ7D/25FXKK44/?source_id=CAUSMART" class="ho-link" target="_blank">
+                                    <picture>
+                                        <source srcset="./imgs/img-3-728.webp" type="image/webp" width="728" height="423" loading="lazy">
+                                        <source srcset="./imgs/img-3-510.jpg" type="image/jpeg" width="510" height="296" loading="lazy">
+                                        <img data-src="./imgs/img-3.webp" type="image/webp" alt="" class="img-fluid m-auto d-block" loading="lazy" width="728" height="423">
+                                    </picture>
+                                </a>
+                            </div>
+                            <div class="content mt-3">
+                                <p>
+                                    The system remains broken and is a dreadful display of hypocrisy, confusion, and avoidable complications. There is no reason why electric companies should be winning over regulators and consumers, but they are.
+                                    <br /><br /> You can literally view hundreds of electric bills from an array of companies, and all you will notice is a mumbo jumbo of terms, conditions, and small print—hello headache. <a href="https://www.fasttrack12.com/M6DLDZ7D/25FXKK44/?source_id=CAUSMART"
+                                        class="ho-link" target="_blank">
+                                        And you won't know what your bill will be until it arrives.
+                                    </a>
+                                    <br /><br />
+                                    <strong class="bg-red-highlighter">Why does it matter? Because it results in more money out of your pocket.</strong>
+                                    <br /><br /> Electric companies also confuse consumers with tiered pricing—different rates for different usage levels—but they make sure that the lowest prices show up early in search results.
+                                    <br /><br /> To make a long story short, Big Energy is running a massive racket, and they will keep doing it as long as they can get away with it.
+                                    <br /><br /> But there is hope for every consumer of electricity. Thankfully, innovative new technology can help most consumers <a href="https://www.fasttrack12.com/M6DLDZ7D/25FXKK44/?source_id=CAUSMART" class="ho-link bg-red-highlighter text-dark font-weight-bold"
+                                        target="_blank">
+                                        reduce their electric bills by up to 90% a month after the first month.
+                                    </a>
+                                </p>
+                            </div>
+                        </div>
+                        <!--image4-->
+                        <div class="row">
+                            <div class="col-12">
+                                <a href="https://www.fasttrack12.com/M6DLDZ7D/25FXKK44/?source_id=CAUSMART" class="ho-link" target="_blank">
+                                    <picture>
+                                        <source srcset="./imgs/img-4-728.webp" type="image/webp" width="728" height="423" loading="lazy">
+                                        <source srcset="./imgs/img-4-510.jpg" type="image/jpeg" width="510" height="296" loading="lazy">
+                                        <img data-src="./imgs/img-4.webp" alt="" class="img-fluid m-auto d-block" loading="lazy" width="728" height="423">
+                                    </picture>
+                                </a>
+                            </div>
+                            <div class="content mt-3">
+                                <p>
+                                    A German-based startup company has come up with a new innovative and inexpensive gadget that helps you not only lower your electric bill but can also increase the lifespan of expensive household appliances. Within just one month, the device would pay
+                                    for itself.
+                                </p>
+                                <h3 class="mb-3">What is This Device?</h3>
+                                <p>
+                                    It's called StopWatt, and its technology was originally created by none other than the legendary Serbian American inventor, electrical engineer, mechanical engineer, and futurist, Nikola Tesla.
+                                    <br /><br /> Initially, it was concealed from the general public because it offered average families the opportunity to save on their monthly energy costs. <a href="https://www.fasttrack12.com/M6DLDZ7D/25FXKK44/?source_id=CAUSMART" class="ho-link"
+                                        target="_blank">StopWatt is a small, compact, affordable, and easy-to-use plug-in unit</a> that stops unnecessary power from entering the electrical cables and overloading the network.
+                                    <br /><br /> StopWatt is your power company's worst nightmare. They have been trying to hide StopWatt from the everyday consumer and have even banned it in retail shops.
+                                    <br /><br /> Big Energy is threatened by this device and its potential to cut into profits.
+                                    <br /><br /> However, thanks to the Internet, the secret is out, and everyday people are now reaping the rewards of less power consumption overall, including that used by household appliances.
+                                </p>
+                            </div>
+                        </div>
+                        <!--image5-->
+                        <div class="row">
+                            <div class="col-12 video">
+                                <video autoplay="" loop="" muted="" playsinline="">
+                                    <source type="video/mp4" src="./imgs/save-energy.mp4">
+                                </video>
+
+                                <a href="https://www.fasttrack12.com/M6DLDZ7D/25FXKK44/?source_id=CAUSMART" class="ho-link hide" target="_blank">
+                                    <picture>
+                                        <source srcset="./imgs/img-5.webp" type="image/webp" width="728" height="423" loading="lazy">
+                                        <source srcset="./imgs/img-5-728.jpg" type="image/jpeg" width="728" height="423" loading="lazy">
+                                        <img data-src="./imgs/img-5.webp" alt="" class="img-fluid m-auto d-block" loading="lazy" width="728" height="423">
+                                    </picture>
+                                </a>
+                            </div>
+                            <div class="content mt-3">
+                                <p>
+                                    The bonus? Your standard blender, microwave, vacuum, or any other household appliance may last longer.
+                                    <br /><br />
+                                    <strong class="bg-red-highlighter">
+                                        In essence, StopWatt provides the opportunity for you to <a href="https://www.fasttrack12.com/M6DLDZ7D/25FXKK44/?source_id=CAUSMART" class="ho-link" target="_blank">
+                                            save up to
+                                            47% on your energy bill
+                                        </a>.
+                                        That's a phenomenal savings and makes it easy to understand why Big Energy wants this device hidden forever from consumers.
+                                    </strong>
+                                    <!--In essence, StopWatt provides the opportunity for you to <a href="https://www.fasttrack12.com/M6DLDZ7D/25FXKK44/?source_id=CAUSMART" class="ho-link" target="_blank">
+                                        save up to
+                                        47% on your energy bill
+                                    </a>.
+                                    That's a phenomenal savings and makes it easy to understand why Big Energy wants this device hidden forever from consumers.-->
+                                    <br /><br /> The benefits of StopWatt are unparalleled, and researchers are convinced this device could be the end of unaffordable power bills that can cripple the average end-of-the-month earnings for the typical wage
+                                    earner.
+                                    <br /><br /> Scientists initially spent many months trying to debunk claims of its efficiency, but those studies now prove that <a href="https://www.fasttrack12.com/M6DLDZ7D/25FXKK44/?source_id=CAUSMART" class="ho-link" target="_blank">
+                                        StopWatt should be commonplace in every household
+                                    </a>.
+                                </p>
+                            </div>
+                        </div>
+                        <!--image6-->
+                        <div class="row">
+                            <div class="content">
+                                <h3 class="mb-3">
+                                    HOW DOES STOPWATT WORK?
+                                </h3>
+                                <p>
+                                    It's easy to connect. Simply plug StopWatt into the outlet closest to your breaker box. That is all you need to do. Once it’s plugged in, the green LED light indicates it is powered on and working.
+                                </p>
+                        
+                                </a>
+                            </div>
+                            <div class="content mt-3">
+                                <p>
+                                    If you have a larger home, it is beneficial to place 1 unit close to the breaker box and another as far away from it as possible. It is as simple as that. And, it's suitable for both standard homes and apartments connected to an electrical grid.
+                                    <br /><br /> Once you've plugged it in, StopWatt will immediately get to work. Within 3-4 weeks (depending on the size of your home), it will begin to make efficient use of your energy while allowing you to reap the
+                                    rewards of a more robust household appliance life cycle. In just a short time, you will have made your money back on your initial purchase.
+                                    <br /><br /> Appliances always draw more power than they need to run due to inefficiencies and noise on the sine wave.
+                                </p>
+                            </div>
+                        </div>
+                        <!--image7-->
+                        <div class="row">
+                            <div class="col-12">
+                                <a href="https://www.fasttrack12.com/M6DLDZ7D/25FXKK44/?source_id=CAUSMART" class="ho-link" target="_blank">
+                                    <picture>
+                                        <source srcset="./imgs/img-7-728.webp" media="(min-width: 768px)" width="728" height="423" loading="lazy" type="image/webp">
+                                        <source srcset="./imgs/img-7-728.jpg" media="(min-width: 768px)" width="728" height="423" loading="lazy" type="image/jpeg">
+                                        <source srcset="./imgs/img-7-510.jpg" media="(min-width: 414px)" width="510" height="296" loading="lazy">
+                                        <source srcset="./imgs/img-7-325.jpg" media="(min-width: 100px)" width="325" height="189" loading="lazy">
+                                        <img data-src="./imgs/img-7.webp" alt="" class="img-fluid m-auto d-block" loading="lazy" width="728" height="423">
+                                    </picture>
+                                </a>
+                            </div>
+                            <div class="content mt-3">
+                                <h3 class="mb-3">
+                                    Can Big Energy Actually Stop This?
+                                </h3>
+                                <p>
+                                    Now that you know the first truth—that power companies massively overcharge their customers—you should also know the second truth (one that almost no one is aware of): your utility company's power is overloading circuits and shortening the lifespans of
+                                    your <a href="https://www.fasttrack12.com/M6DLDZ7D/25FXKK44/?source_id=CAUSMART" class="ho-link" target="_blank">
+                                        expensive household appliances in the process
+                                    </a>.
+                                    <br /><br /> So, you're set to lose more than just money from your wallet. When StopWatt was discovered overseas, power companies spent millions <strong>
+                                        <span class="bg-red-highlighter"></span>
+                                    </strong> trying to stop the product from reaching retail store shelves.
+                                </p>
+                            </div>
+                        </div>
+                        <!--image8-->
+                        <div class="row">
+                            <div class="col-12 show-floating">
+                                <a href="https://www.fasttrack12.com/M6DLDZ7D/25FXKK44/?source_id=CAUSMART" class="ho-link" target="_blank">
+                                    <picture>
+                                        <source srcset="./imgs/img-8-728.webp" media="(min-width: 768px)" width="728" height="423" loading="lazy" type="image/webp">
+                                        <source srcset="./imgs/img-8-728.jpg" media="(min-width: 768px)" width="728" height="423" loading="lazy" type="image/jpeg">
+                                        <source srcset="./imgs/img-8-510.jpg" media="(min-width: 414px)" width="510" height="296" loading="lazy">
+                                        <source srcset="./imgs/img-8-325.jpg" media="(min-width: 100px)" width="325" height="189" loading="lazy">
+                                        <img data-src="./imgs/img-8.webp" alt="" class="img-fluid m-auto d-block" loading="lazy" width="728" height="423">
+                                    </picture>
+                                </a>
+                                <br />
+                                <a href="https://www.fasttrack12.com/M6DLDZ7D/25FXKK44/?source_id=CAUSMART" target="_blank" class="btn-order btn-get pulse ho-link text-white text-decoration-none" style="text-decoration: none;">GET UP TO 50% OFF STOPWATT</a>
+                            </div>
+                            <div class="content mt-3">
+                                <p>
+                                    It would spell the end of their profiteering, so it was important that they kept it out of the public eye.
+                                    <br /><br /> However, the questionable legality of such a move put a stop to this, and now close to 150,000 households worldwide are experiencing lower power bills <a href="https://www.fasttrack12.com/M6DLDZ7D/25FXKK44/?source_id=CAUSMART"
+                                        class="ho-link" target="_blank">
+                                        all because of an inconspicuous plug-in device
+                                    </a>.
+                                </p>
+                                <h3 class="mb-3 text-red">
+                                    IS STOPWATT DEVICE ACTUALLY LEGAL?
+                                </h3>
+                                <p>
+                                    <a href="https://www.fasttrack12.com/M6DLDZ7D/25FXKK44/?source_id=CAUSMART" class="ho-link" target="_blank">StopWatt</a> is absolutely 100% legal; you are at no legal risk for owning this excellent electricity-saving device because simply
+                                    put, you're not breaking any laws.
+                                    <br /><br /> Of course, power companies are not happy with the situation, so they are trying their best to hide StopWatt from the public eye.
+                                </p>
+                                <h3>
+                                    How Much is it Going to Cost Me?
+                                </h3>
+                                <p>
+                                    You're probably thinking, given what this tech can do, that it has to cost a fortune. False! StopWatt is currently on sale, which means you’ll save big. You can get 50% off until the end of the week!
+                                    <br /><br /> Make sure you get yours while you can. Due to recent media attention and mounting pressure from Big Energy, these handy little gadgets may become impossible to find in the near future.
+                                </p>
+                                <h3 class="text-red">
+                                    LOWER YOUR ENERGY COSTS
+                                    <!--Lower Your Energy Costs-->
+                                </h3>
+                                <p>
+                                    Now that you've been informed about this brilliant invention, we're pleased to announce the company has allowed us to give a special discount to all our readers. To get your special discounted pricing, all you need to do is to follow these 3 steps:
+                                    <br /><br />
+                                    <strong>Step 1:</strong> <a href="https://www.fasttrack12.com/M6DLDZ7D/25FXKK44/?source_id=CAUSMART" class="ho-link bg-red-highlighter text-dark font-weight-bold" target="_blank">
+                                        Click Here To Order StopWatt today to take advantage of the limited time special discount.
+                                    </a>
+                                    <br /><br />
+                                    <strong>Step 2:</strong> When you receive it, open the package and plug the device into your wall.
+                                    <br /><br />
+                                    <strong>Step 3:</strong> Once plugged in, give the device some time to optimize your electricity use. Here's a tip: StopWatt is a great gift because it will save everyone who receives it a ton of money!
+                                    <br /><br />
+                                    <a href="https://www.fasttrack12.com/M6DLDZ7D/25FXKK44/?source_id=CAUSMART" class="ho-link" target="_blank">
+                                        Click your state on the map below to receive free shipping.
+                                    </a>
+                                    <br /><br /> When your Stopwatt is delivered, all you have to do is plug it in and start saving on energy costs! It's really that easy!
+                                </p>
+                            </div>
+                        </div>
+                        <!--image9-->
+                        <div class="row show-floating">
+                            <div class="col-12">
+                                <a href="https://www.fasttrack12.com/M6DLDZ7D/25FXKK44/?source_id=CAUSMART" class="ho-link" target="_blank">
+                                    <picture>
+                                        <source srcset="./imgs/img-9-728.webp" media="(min-width: 768px)" width="728" height="423" loading="lazy" type="image/webp">
+                                        <source srcset="./imgs/img-9-728.jpg" media="(min-width: 768px)" width="728" height="423" loading="lazy" type="image/jpeg">
+                                        <source srcset="./imgs/img-9-510.jpg" media="(min-width: 414px)" width="510" height="296" loading="lazy">
+                                        <source srcset="./imgs/img-9-325.jpg" media="(min-width: 100px)" width="325" height="189" loading="lazy">
+                                        <img data-src="./imgs/img-9.jpeg" alt="" class="img-fluid m-auto d-block" loading="lazy" width="728" height="423">
+                                    </picture>
+                                </a>
+                                <br />
+                                <a href="https://www.fasttrack12.com/M6DLDZ7D/25FXKK44/?source_id=CAUSMART" target="_blank" class="btn-order btn-get pulse ho-link text-white text-decoration-none" style="text-decoration: none;">GET UP TO 50% OFF STOPWATT</a>
+                            </div>
+                        </div>
+
+                        <div class="testimonials mt-5">
+                            <h3>STOPWATT REVIEWS </h3>
+                            <div class="row testi">
+                                <div class="col-md-12">
+                                    <div class="row">
+                                        <div class="col-md-2">
+                                            <img src="./imgs/kevin-pic.png" />
+                                        </div>
+                                        <div class="col-md-10">
+                                            <p class="m-0 font-weight-bold">Kevin Holmes, St. Louis, MO</p>
+                                            <p class="m-0"> <img src="./imgs/5-stars.png" /> <span><b>We'll be customers for life</b></span></p>
+                                            <p class="m-0 text-grey">Reviewed in the United States on July 28, 2023</p>
+                                            <p style="font-weight:500; color:#ea520e;">Verified Purchase</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <p>
+                                        "I’m so surprised by the amount we saved with these <span class="font-weight-bold">
+                                            Stopwatt devices… literally,
+                                            you just plug them in and that’s it! My wife was shocked when we got our first bill and we saved $35!
+                                        </span> And it’s only gotten better from there… We’ll be customers for life."
+                                    </p>
+
+                                </div>
+                            </div>
+                            <div class="row testi mt-3">
+                                <div class="col-md-12">
+                                    <div class="row">
+                                        <div class="col-md-2">
+                                            <img src="./imgs/tracy-pic.png" />
+                                        </div>
+                                        <div class="col-md-10">
+                                            <p class="m-0 font-weight-bold">Tracy Wolfson, Orlando, FL</p>
+                                            <p class="m-0"> <img src="./imgs/5-stars.png" /> <span><b>I'm not sure how it works, but the savings are real</b></span></p>
+                                            <p class="m-0 text-grey">Reviewed in the United States on July 24, 2023</p>
+                                            <p style="font-weight:500; color:#ea520e;">Verified Purchase</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <p>
+                                        “If you’re skeptical, I feel sorry for you. <span class="font-weight-bold">Stopwatt has really made something special here.</span> I’m not entirely sure how it works, but the savings are REAL!”
+                                    </p>
+
+                                </div>
+                            </div>
+                            <div class="row testi mt-3">
+                                <div class="col-md-12">
+                                    <div class="row">
+                                        <div class="col-md-2">
+                                            <img src="./imgs/melisa-pic.png" />
+                                        </div>
+                                        <div class="col-md-10">
+                                            <p class="m-0 font-weight-bold">Melisa Houston, Syracuse, NY</p>
+                                            <p class="m-0"> <img src="./imgs/5-stars.png" /> <span><b>We made our money back in 4 months</b></span></p>
+                                            <p class="m-0 text-grey">Reviewed in the United States on July 24, 2023</p>
+                                            <p style="font-weight:500; color:#ea520e;">Verified Purchase</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <p>
+                                        “I don’t usually write reviews, but I have to share some numbers with you all…
+                                        <span class="font-weight-bold">In the first month, we saved $33. The second month, $45. The third month, $52. Fourth month, $55.</span> If that isn’t a strong testimonial, I’m not sure what is!”
+                                    </p>
+
+                                </div>
+                            </div>
+                            <div class="row testi mt-3">
+                                <div class="col-md-12">
+                                    <div class="row">
+                                        <div class="col-md-2">
+                                            <img src="./imgs/wilma-pic.png" />
+                                        </div>
+                                        <div class="col-md-10">
+                                            <p class="m-0 font-weight-bold">
+                                                Wilma Besley, Orlando, FL
+                                            </p>
+                                            <p class="m-0"> <img src="./imgs/5-stars.png" /> <span><b>Not many things in life are a no-brainer...Stopwatt is one of them</b></span></p>
+                                            <p class="m-0 text-grey">Reviewed in the United States on June 29, 2023</p>
+                                            <p style="font-weight:500; color:#ea520e;">Verified Purchase</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <p>
+                                        “Alright so I ended up buying 3 of these. Put one in my kitchen, one in the bedroom, and one in our living room. After six months, I can confidently say that we’re easily saving at least $50 per month.
+                                        <span class="font-weight-bold">Stopwatt is a no brainer. You want to save money each month? Buy a few of these and you’re all set.</span>
+                                    </p>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 side-bar">
+                <h4 class="prod-headline">Stop Wasting Money On Dirty And Unstable Electricity</h4>
+                <img src="./imgs/stopwatt-img.jpg" class="img-fluid" />
+                <a href="https://www.fasttrack12.com/M6DLDZ7D/25FXKK44/?source_id=CAUSMART" target="_blank" class="btn-get2 ho-link">GET 50% OFF TODAY</a>
+
+                <div class="customer-rating-sec mb-5">
+                    <h4 class="text-center mt-4">Customer's Review</h4>
+                    <p class="text-center">758 customer ratings</p>
+                    <div class="ratings">
+                        <div class="row my-2">
+                            <div class="col-3 pr-0">
+                                5 Stars
+                            </div>
+                            <div class="col-6 p-0">
+                                <div class="star-rate">
+                                    <div class="five-stars-rate"></div>
+                                </div>
+                            </div>
+                            <div class="col-2 text-right pr-0">
+                                90%
+                            </div>
+                        </div>
+
+                        <div class="row my-2">
+                            <div class="col-3 pr-0">
+                                4 Stars
+                            </div>
+                            <div class="col-6 p-0">
+                                <div class="star-rate">
+                                    <div class="four-stars-rate"></div>
+                                </div>
+                            </div>
+                            <div class="col-2 text-right pr-0">
+                                7%
+                            </div>
+                        </div>
+
+                        <div class="row my-2">
+                            <div class="col-3 pr-0">
+                                3 Stars
+                            </div>
+                            <div class="col-6 p-0">
+                                <div class="star-rate">
+                                    <div class="three-stars-rate"></div>
+                                </div>
+                            </div>
+                            <div class="col-2 text-right pr-0">
+                                3%
+                            </div>
+                        </div>
+
+                        <div class="row my-2">
+                            <div class="col-3 pr-0">
+                                2 Stars
+                            </div>
+                            <div class="col-6 p-0">
+                                <div class="star-rate">
+                                    <div class="two-stars-rate"></div>
+                                </div>
+                            </div>
+                            <div class="col-2 text-right pr-0">
+                                0%
+                            </div>
+                        </div>
+
+                        <div class="row my-2">
+                            <div class="col-3 pr-0">
+                                1 Stars
+                            </div>
+                            <div class="col-6 p-0">
+                                <div class="star-rate">
+                                    <div class="one-star-rate"></div>
+                                </div>
+                            </div>
+                            <div class="col-2 text-right pr-0">
+                                1%
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <div class="sectionContainer">
+            <picture>
+                <source srcset="images/logo.png" media="(min-width: 768px)" width="300" height="74" loading="lazy">
+                <source srcset="images/logo.png" media="(min-width: 100px)" width="150" height="37" loading="lazy">
+                <img data-src="images/logo.png" alt="" class="img-fluid m-auto d-block" loading="lazy" width="300" height="74">
+            </picture>
+            <ul class="list-inline copyright">
+                <li><a href="terms_condition_60days.html" class="privacy-link">Terms of Use</a></li>
+                <li><a href="privacy_new.html" id="privacy-link">Privacy Policy</a></li>
+                <li><a href="info.html" id="contact-us">Contact Us</a> </li>
+            </ul>
+            <p>
+                Representations regarding the efficacy of StopWatt have not been substantiated. StopWatt cannot guarantee any specific monetary savings by using this product.
+                <br /><br /> Copyright © <span class="year">2023</span> StopWatt. All Rights Reserved.
+            </p>
+        </div>
+    </div>
+
+    <div class="btn-float floating-bar floating-bottom  floating-btn btn-floating-bar floating-ft" data-class=".btn-order" data-ticktopelm="" data-tickbottomelm=".show-floating">
+        <a href="https://www.fasttrack12.com/M6DLDZ7D/25FXKK44/?source_id=CAUSMART" target="_blank" class="btn-get pulse ho-link">GET UP TO 50% OFF STOPWATT</a>
+    </div>
+
+    <input id="is_intro" value="1" type="hidden">
+    <input id="website" type="hidden" value="shop.stopwatts.com" />
+    <script type="text/javascript" src="presell/js/easy_modalandjquery.js" defer></script>
+    <script src="presell/js/bdv4.js" defer></script>
+    <!-- HO SNIPPET -->
+
+    <script src="presell/js/index.min.js"></script>
+    <script>
+        (function() {
+            var elements = document.querySelectorAll('img[data-src]');
+            var index = 0;
+            var lazyLoad = function() {
+                if (elements.length != 0) {
+                    var item = elements[index];
+                    if (typeof item != "undefined") {
+                        if ((this.scrollY + this.innerHeight) > item.offsetTop) {
+                            var src = item.getAttribute("data-src");
+                            item.src = src;
+                            item.removeAttribute('data-src');
+                            index++;
+                            lazyLoad();
+                        }
+                    }
+                }
+            };
+            var init = function() {
+                window.addEventListener('scroll', lazyLoad);
+                //lazyLoad();
+            };
+            return init();
+        })();
+    </script>
+    <script>
+        //this will FB PIXEL create a script after dom is fully loaded
+        document.addEventListener("DOMContentLoaded", function() {
+            var img = document.createElement('img');
+            img.src = "https://www.facebook.com/tr?id=438503459964508&ev=PageView";
+            img.height = "1";
+            img.width = "1";
+            img.style = "display:none";
+            document.body.appendChild(img);
+        });
+    </script>
+    <!-- Google Tag Manager -->
+    <script>
+        (function(w, d, s, l, i) {
+            w[l] = w[l] || [];
+            w[l].push({
+                'gtm.start': new Date().getTime(),
+                event: 'gtm.js'
+            });
+            var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s),
+                dl = l != 'dataLayer' ? '&l=' + l : '';
+            j.async = true;
+            j.src =
+                'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+            f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-KGM5PZF');
+    </script>
+    <div id="modal-popup"></div>
+</body>
+
+</html>
